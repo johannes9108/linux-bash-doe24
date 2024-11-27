@@ -1,0 +1,4 @@
+Username:Firstname:Lastname:Telephone number
+Joebazooka:Johannes:Hedman:123123412
+john:John:Silvell:321321321
+HassanG:Hassan:G:542543543

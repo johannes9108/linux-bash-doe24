@@ -1,0 +1,7 @@
+This is a text with      
+a lot of trailing   
+whitespaces   
+This section on the other hand
+does not
+contain
+trailing whitespaces. 
