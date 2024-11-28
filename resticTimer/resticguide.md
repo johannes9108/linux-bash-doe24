@@ -19,3 +19,4 @@ Environment="RESTIC_PASSWORD_FILE=/home/joebazooka/linux-bash-doe24/resticTimer/
 ```
 * Editing is done in the local folder `~/linux-bash-doe24/resticTimer/resticTimer.timer` & `~/linux-bash-doe24/resticTimer/resticTimer.service`. They are than copied into /usr/lib/systemd/system/ folder.
 * To active the units `systemctl daemon-reload`is needed. 
+* `preRestic.sh` and `postRestic.sh`  are for initiating respectively sending the snapshot

@@ -5,4 +5,6 @@ Description=Running echoes
 Environment="RESTIC_REPOSITORY=/home/joebazooka/linux-bash-doe24/resticTimer/restic-repo/"
 Environment="RESTIC_PASSWORD_FILE=/home/joebazooka/linux-bash-doe24/resticTimer/resticPW"
 Type=simple
-ExecStart=/usr/bin/restic backup /home/joebazooka/linux-bash-doe24/resticTimer/workspace/ 
+ExecStartPre=/home/joebazooka/linux-bash-doe24/resticTimer/preRestic.sh
+ExecStart=/usr/bin/restic backup /home/joebazooka/linux-bash-doe24/resticTimer/workspace/
+ExecStartPost=/home/joebazooka/linux-bash-doe24/resticTimer/postRestic.sh
