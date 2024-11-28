@@ -1,0 +1,9 @@
+[Unit]
+Description=Custom Backup Restic
+
+[Timer]
+OnBootSec=30s
+OnActiveSec=20s
+
+[Install]
+WantedBy=multi-user.target
