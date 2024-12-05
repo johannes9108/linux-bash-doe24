@@ -1,0 +1,5 @@
+httpd
+init
+openssh-server
+ntp
+dnsmasq
