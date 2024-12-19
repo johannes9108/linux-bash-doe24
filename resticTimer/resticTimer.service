@@ -1,10 +1,13 @@
 [Unit]
-Description=Running echoes
+Description=Running Restic
 
 [Service]
-Environment="RESTIC_REPOSITORY=/home/joebazooka/linux-bash-doe24/resticTimer/restic-repo/"
+Environment="RESTIC_REPOSITORY=sftp://joebazooka@192.168.56.101/remote"
 Environment="RESTIC_PASSWORD_FILE=/home/joebazooka/linux-bash-doe24/resticTimer/resticPW"
 Type=simple
 ExecStartPre=/home/joebazooka/linux-bash-doe24/resticTimer/preRestic.sh
 ExecStart=/usr/bin/restic backup /home/joebazooka/linux-bash-doe24/resticTimer/workspace/
-ExecStartPost=/home/joebazooka/linux-bash-doe24/resticTimer/postRestic.sh
+;ExecStartPost=/home/joebazooka/linux-bash-doe24/resticTimer/postRestic.sh
+
+[Install]
+WantedBy=basic.target

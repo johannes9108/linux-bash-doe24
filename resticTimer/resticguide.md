@@ -1,5 +1,5 @@
-# Basic Guide to Restic
-1. export RESTIC_REPOSITORY=/srv/restic-repo
+# General Guide to Restic
+1. export RESTIC_REPOSITORY=[LOCAL or REMOTE ]
 2. export RESTIC_PASSWORD=some-strong-password
 3. restic init
 4. restic backup ~/work
@@ -11,12 +11,13 @@
 # Custom Solution
 * Created a folder `~/linux-bash-doe24/resticTimer/workspace` with 10 dummy files.
 * This folder is used for "restic backup workspace" command.
-* Triggers 5min after boot, and 20sec after "start" command.
+* Triggers 5min after boot
 * The service file runs the script with some preconfigured environmental variables:
 ```ini
-Environment="RESTIC_REPOSITORY=/home/joebazooka/linux-bash-doe24/resticTimer/restic-repo/"
+Environment="RESTIC_REPOSITORY=sftp://joebazooka@192.168.56.101/remote"
 Environment="RESTIC_PASSWORD_FILE=/home/joebazooka/linux-bash-doe24/resticTimer/resticPW"
 ```
-* Editing is done in the local folder `~/linux-bash-doe24/resticTimer/resticTimer.timer` & `~/linux-bash-doe24/resticTimer/resticTimer.service`. They are than copied into /usr/lib/systemd/system/ folder.
-* To active the units `systemctl daemon-reload`is needed. 
-* `preRestic.sh` and `postRestic.sh`  are for initiating respectively sending the snapshot
+* Editing is done in the local folder `~/linux-bash-doe24/resticTimer/resticTimer.timer` & `~/linux-bash-doe24/resticTimer/resticTimer.service`. They are than copied into `/home/joebazooka/.config/systemd/user/` folder.
+* To trigger the user-services after boot I needed to set `loginctl enable-linger joebazooka`
+* To active the units `systemctl --user daemon-reload`is needed. 
+* `preRestic.sh` checks if I new repo is needed or not. 
